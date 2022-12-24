@@ -55,7 +55,7 @@ public class Gambling {
             System.out.println("Day : "+i);
             fullDayPlay();
         }
-        System.out.println("Total Days won : " + dayWon + ", Total Days Loose : " + dayLoose);
+        System.out.println("Total Days won Maximum : " + dayWon + ", Total Days Loose Maximum : " + dayLoose);
         System.out.println("Monthly Days win(positive) or loose(negative) : " + totalWinOrLoose + "$");
     }
 
