@@ -57,6 +57,11 @@ public class Gambling {
         }
         System.out.println("Total Days won Maximum : " + dayWon + ", Total Days Loose Maximum : " + dayLoose);
         System.out.println("Monthly Days win(positive) or loose(negative) : " + totalWinOrLoose + "$");
+        if(totalWinOrLoose > 0){
+            System.out.println("Continue Playing ..");
+        }else if (totalWinOrLoose < 0){
+            System.out.println("Stop Gambling....");
+        }
     }
 
 }
