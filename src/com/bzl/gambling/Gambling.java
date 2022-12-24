@@ -6,15 +6,13 @@ public class Gambling {
     public static void main(String[] args) {
         System.out.println("Hello Gambling simulation");
         Gambling ob = new Gambling(100);
-        while (ob.resign == false) {
-            ob.betStake(1);
-        }
+        ob.twentyDaysOfPlaying();
     }
     int stake ;
-    int win = 0;
     int tempStake;
-    int loose = 0;
-    boolean resign = false ;
+    int winOrLoose = 0;
+    int totalWinOrLoose = 0;
+    boolean resign = false ;int win = 0;
     public Gambling(int stake){
         this.stake = stake;
         tempStake = stake;
@@ -25,16 +23,31 @@ public class Gambling {
         if(stake <= tempStake * 1.5 && stake >= tempStake * 0.5) {
             if (i == 0) {
                 stake = stake - p;
-                System.out.println("loose");
-                loose += p;
+                winOrLoose -= p;
             } else {
-                System.out.println("win");
-                win += p;
+                winOrLoose += p;
                 stake = stake + p;
             }
         }else{
             resign = true;
-            System.out.println("day "+stake);
+            System.out.println("winorloose : "+winOrLoose);
+            totalWinOrLoose += winOrLoose;
         }
     }
+    public void fullDayPlay(){
+        while (resign == false) {
+            betStake(1);
+        }
+    }
+    public void twentyDaysOfPlaying(){
+        for(int i = 1; i <= 20; i++){
+            resign = false;
+            stake = tempStake;
+            winOrLoose = 0;
+            System.out.println("Day : "+i);
+            fullDayPlay();
+        }
+        System.out.println("Twenty Days win(positive) or loose(negative) : " + totalWinOrLoose + "$");
+    }
+
 }
